@@ -1,5 +1,4 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -16,7 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from "@angular/material/button";
-import { StudentGetComponent } from './student-get/student-get.component';
+import { StudentGetComponent } from './component/student-get/student-get.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
@@ -29,6 +28,12 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { ClazzComponent } from './clazz/clazz.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import {CommonModule} from "@angular/common";
+import {BrowserModule} from "@angular/platform-browser";
+import {RouterModule} from "@angular/router";
+import { SelectClazzDialogComponent } from './component/select-clazz-dialog/select-clazz-dialog.component';
+import {NgxMatSelectSearchModule} from "ngx-mat-select-search";
+import { MarkDialogComponent } from './component/mark-dialog/mark-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,11 +43,18 @@ import {NgxPaginationModule} from "ngx-pagination";
     HomeComponent,
     DashboardComponent,
     StudentGetComponent,
-    ClazzComponent
+    ClazzComponent,
+    SelectClazzDialogComponent,
+    MarkDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule,
+    NgxPaginationModule,
     BrowserAnimationsModule,
     // * MATERIAL IMPORTS
     MatSidenavModule,
@@ -52,13 +64,6 @@ import {NgxPaginationModule} from "ngx-pagination";
     MatDividerModule,
     MatListModule,
     MatButtonModule,
-    FormsModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    NgxPaginationModule,
-    BrowserAnimationsModule,
     MatSlideToggleModule,
     MatFormFieldModule,
     MatInputModule,
@@ -66,15 +71,10 @@ import {NgxPaginationModule} from "ngx-pagination";
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
     MatDialogModule,
-    // NgxMatSelectSearchModule,
     MatSnackBarModule,
-    MatMenuModule,
+    RouterModule,
+    NgxMatSelectSearchModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

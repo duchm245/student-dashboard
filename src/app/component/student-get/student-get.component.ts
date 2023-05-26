@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import {CommonService} from "../service/common.service";
-import {ClazzService} from "../service/clazz.service";
-import {StudentService} from "../service/student.service";
+import {CommonService} from "../../service/common.service";
+import {ClazzService} from "../../service/clazz.service";
+import {StudentService} from "../../service/student.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DatePipe} from "@angular/common";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar, MatSnackBarConfig} from "@angular/material/snack-bar";
+import {SelectClazzDialogComponent} from "../select-clazz-dialog/select-clazz-dialog.component";
+import {MarkDialogComponent} from "../mark-dialog/mark-dialog.component";
 
 
 @Component({
@@ -152,31 +154,31 @@ export class StudentGetComponent {
   }
 
   // Hàm mở popup chọn lớp học
-  openSelectClazzDialog2(stId: any, classId: any) {
-    // const dialogRef = this.dialog.open(SelectClazzDialog2Component, {
-    //   width: '400px', // Định nghĩa kích thước của popup
-    //   height: '200px',
-    //   data: {stId: stId, classId: classId}
-    // });
+  openSelectClazzDialog(stId: any, classId: any) {
+    const dialogRef = this.dialog.open(SelectClazzDialogComponent, {
+      width: '400px', // Định nghĩa kích thước của popup
+      height: '200px',
+      data: {stId: stId, classId: classId}
+    });
     // Theo dõi sự kiện đóng popup
-    // dialogRef.afterClosed().subscribe(result => {
-    //   // Xử lý kết quả khi đóng popup (nếu cần)
-    //   this.search();
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      // Xử lý kết quả khi đóng popup (nếu cần)
+      this.search();
+    });
   }
 
   // Hàm mở popup chọn lớp học
   openMark(stId: any, classId: any, studentName: any, studentCode: any) {
-    // const dialogRef = this.dialog.open(MarkDialogComponent, {
-    //   width: '1920px', // Định nghĩa kích thước của popup
-    //   height: '800px',
-    //   data: {stId: stId, classId: classId, studentName: studentName, studentCode: studentCode}
-    // });
+    const dialogRef = this.dialog.open(MarkDialogComponent, {
+      width: '1920px', // Định nghĩa kích thước của popup
+      height: '800px',
+      data: {stId: stId, classId: classId, studentName: studentName, studentCode: studentCode}
+    });
     // Theo dõi sự kiện đóng popup
-    // dialogRef.afterClosed().subscribe(result => {
-    //   // Xử lý kết quả khi đóng popup (nếu cần)
-    //   this.search();
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      // Xử lý kết quả khi đóng popup (nếu cần)
+      this.search();
+    });
   }
 
 
